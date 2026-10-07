@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/09/26 04:32:00 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/07 22:16:51 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,13 @@ typedef struct s_ps
 	int		size_b;
 	int		counter[OP_NUM];
 }	t_ps;
+
+/* Sort - Complex (Radix) */
+void	sort_complex(t_ps *ps);
+void	radix_algo(t_ps *ps, int divide);
+
+/* Sort Checker (not bonus) */
+int		ps_is_sorted(t_node *node);
 
 /* Operations - Swap */
 void	op_swap(t_node **node);
