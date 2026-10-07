@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 17:14:22 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/05 18:07:35 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/07 22:15:55 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	radix_pass(t_ps *ps, int divide)
+void	radix_algo(t_ps *ps, int divide)
 {
 	int n;
 
@@ -27,4 +27,18 @@ void	radix_pass(t_ps *ps, int divide)
 	}
 	while (ps->size_b != 0)
 		op_pa(ps);
+}
+
+void	sort_complex(t_ps *ps)
+{
+	int divide;
+	int rank_max;
+
+	divide = 1;
+	rank_max = ps->size_a - 1;
+	while (ps_is_sorted(ps->a) == 0 && rank_max / divide > 0)
+	{
+		radix_algo(ps, divide);
+		divide *= 2;
+	}
 }
