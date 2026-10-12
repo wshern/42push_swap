@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 17:14:22 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/07 22:15:55 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/12 15:56:24 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	radix_algo(t_ps *ps, int divide)
 {
-	int n;
+	int	n;
 
 	n = ps->size_a;
 	while (n != 0)
@@ -31,8 +31,8 @@ void	radix_algo(t_ps *ps, int divide)
 
 void	sort_complex(t_ps *ps)
 {
-	int divide;
-	int rank_max;
+	int	divide;
+	int	rank_max;
 
 	divide = 1;
 	rank_max = ps->size_a - 1;
