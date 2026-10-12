@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftps_node_helper.c                                 :+:      :+:    :+:   */
+/*   ps_node_helper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 15:11:50 by werlim            #+#    #+#             */
-/*   Updated: 2026/09/25 16:59:42 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/12 15:56:02 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_node	*ftps_ndnew(int data, int rank)
 	return (node);
 }
 
-t_node *ftps_ndlast(t_node *node)
+t_node	*ftps_ndlast(t_node *node)
 {
 	if (!node)
 		return (NULL);
