@@ -12,7 +12,8 @@
 
 #include "ps_printf.h"
 
-static int	ps_putnbr(const int fd, unsigned long nbr, int base, const char *alnum)
+static int	ps_putnbr(const int fd, unsigned long nbr,
+	int base, const char *alnum)
 {
 	char	result;
 	int		counter;
@@ -67,6 +68,23 @@ int	handler_ptr(const int fd, unsigned long nbr)
 	counter = 0;
 	counter += ps_putstr(fd, "0x");
 	counter += ps_putnbr(fd, nbr, 16, "0123456789abcdef");
+	return (counter);
+}
+
+int	handler_putfloat(const int fd, double nbr)
+{
+	int	n1;
+	int	n2;
+	int	counter;
+
+	counter = 0;
+	n1 = (int)(nbr * 100 + 0.5) / 100;
+	n2 = (int)(nbr * 100 + 0.5) % 100;
+	counter += handler_int(fd, n1);
+	counter += ps_putchar(fd, '.');
+	if (n2 < 10)
+		counter += ps_putchar(fd, '0');
+	counter += handler_int(fd, n2);
 	return (counter);
 }
 

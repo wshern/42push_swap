@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 21:58:25 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/15 13:16:57 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/15 14:31:46 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	ps_putstr(const int fd, const char *s);
 int	handler_int(const int fd, int nbr);
 int	handler_unsigned(const int fd, unsigned int nbr, char type);
 int	handler_ptr(const int fd, unsigned long nbr);
+int	handler_putfloat(const int fd, double nbr);
 
 #endif

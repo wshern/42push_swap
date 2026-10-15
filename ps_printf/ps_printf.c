@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ps_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/27 18:08:32 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/15 13:16:15 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/15 14:14:53 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	f_ident(const int fd, const char type, va_list *list)
 		return (ps_putchar(fd, '%'));
 	else if (type == '\0')
 		return (-1);
+	else if (type == 'f')
+		return (handler_putfloat(fd, va_arg(*list, double)));
 	return (-1);
 }
 
