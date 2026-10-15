@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/12 15:52:11 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/13 18:12:08 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ typedef struct s_ps
 
 /* Parse - Rank Assignment */
 void	assign_rank(t_node *node);
+
+/* Disorder Calculation */
+double	disorder(t_node *node);
 
 /* Sort - Complex (Radix) */
 void	sort_complex(t_ps *ps);
