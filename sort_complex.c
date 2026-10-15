@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 17:14:22 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/12 15:56:24 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/15 15:45:30 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	sort_complex(t_ps *ps)
 	int	divide;
 	int	rank_max;
 
+	ps->type_class = STRAT_COMPLEX;
 	divide = 1;
 	rank_max = ps->size_a - 1;
 	while (ps_is_sorted(ps->a) == 0 && rank_max / divide > 0)
