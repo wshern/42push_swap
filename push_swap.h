@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/13 18:12:08 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/15 10:52:10 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_ps
 	int		size_a;
 	int		size_b;
 	int		counter[OP_NUM];
+	double	disorder;
+	char	*strategy;
 }	t_ps;
 
 /* Parse - Rank Assignment */
@@ -57,6 +59,9 @@ double	disorder(t_node *node);
 /* Sort - Complex (Radix) */
 void	sort_complex(t_ps *ps);
 void	radix_algo(t_ps *ps, int divide);
+
+/* Sort - Adaptive */
+void	sort_adaptive(t_ps *ps);
 
 /* Sort Checker (not bonus) */
 int		ps_is_sorted(t_node *node);
