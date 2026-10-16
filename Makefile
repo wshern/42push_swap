@@ -6,7 +6,7 @@
 #    By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/27 00:41:53 by werlim            #+#    #+#              #
-#    Updated: 2026/10/16 19:00:52 by werlim           ###   ########.fr        #
+#    Updated: 2026/10/16 19:11:30 by werlim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 
 PRINTF_DIR	=	ps_printf
-PRINTF		=	$(PRINTF_DIR)/psprintf.a
+PRINTF		=	$(PRINTF_DIR)/libpsprintf.a
 
 INCLUDES	=	-I. -I$(PRINTF_DIR)
 
@@ -31,10 +31,10 @@ OBJS	=	$(SRCS:.c=.o)
 all: libs $(NAME)
 
 libs:
-	&(MAKE) -C $(PRINTF_DIR)
+	$(MAKE) -C $(PRINTF_DIR)
 	
 $(NAME): $(OBJS) $(PRINTF)
-	$(CC) $(CFLAGS) $(OBJS) -L$(PRINTF_DIR) -lftprintf -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -L$(PRINTF_DIR) -lpsprintf -o $(NAME)
 
 %.o: %.c push_swap.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@

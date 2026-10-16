@@ -6,11 +6,11 @@
 #    By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 16:58:36 by werlim            #+#    #+#              #
-#    Updated: 2026/10/15 13:25:22 by werlim           ###   ########.fr        #
+#    Updated: 2026/10/16 19:10:52 by werlim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= psprintf.a
+NAME	= libpsprintf.a
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
