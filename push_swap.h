@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 18:22:18 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 19:08:51 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ double	calc_disorder(t_node *node);
 void	dispatcher(t_ps *ps);
 
 /* Sort - Simple */
-void	simple_sort(t_ps *ps);
+void	sort_simple(t_ps *ps);
 
 /* Sort - Medium */
 void	sort_medium(t_ps *ps);

@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 03:21:09 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 16:51:58 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 19:07:46 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	op_rotate(t_node **node)
 	if (!node || !*node || !(*node)->next)
 		return ;
 	temp = (*node)->next;
-	last = ftps_ndlast(*node);
+	last = ps_ndlast(*node);
 	last->next = *node;
 	(*node)->next = NULL;
 	*node = temp;

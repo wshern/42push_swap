@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_sort.c                                      :+:      :+:    :+:   */
+/*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/5 14:38:10 by lukperei           #+#    #+#             */
-/*   Updated: 2026/10/8 14:38:12 by lukperei          ###   ########.fr       */
+/*   Created: 2026/10/05 14:38:10 by ukperei           #+#    #+#             */
+/*   Updated: 2026/10/16 19:08:56 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void simple_sort(t_ps *ps)
+void sort_simple(t_ps *ps)
 {
     while (ps->size_a > 0)
     {
@@ -61,7 +61,7 @@ void sort_five(t_ps *ps)
     op_pa(ps);
 }
 
-void simple_sort(t_ps *ps)
+void sort_simple(t_ps *ps)
 {
     if (ps->size_a <= 1)
         return ;
