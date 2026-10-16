@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_node_helper.c                                   :+:      :+:    :+:   */
+/*   ps_node_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 15:11:50 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/15 11:50:53 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 19:07:46 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ps_ndaddlast(t_node **node, t_node *new)
 		*node = new;
 		return ;
 	}
-	temp = ftps_ndlast(*node);
+	temp = ps_ndlast(*node);
 	temp->next = new;
 }
 

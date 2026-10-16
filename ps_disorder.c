@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatch.c                                         :+:      :+:    :+:   */
+/*   ps_disorder.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/15 17:21:51 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 16:43:48 by werlim           ###   ########.fr       */
+/*   Created: 2026/10/13 17:28:04 by werlim            #+#    #+#             */
+/*   Updated: 2026/10/16 18:49:21 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	dispatcher(t_ps *ps)
+double	calc_disorder(t_node *node)
 {
-	ps->disorder = calc_disorder(ps->a);
-	if (ps->type_strat == STRAT_SIMPLE)
-		sort_simple(ps);
-	else if (ps->type_strat == STRAT_MEDIUM)
-		sort_medium(ps);
-	else if (ps->type_strat == STRAT_COMPLEX)
-		sort_complex(ps);
-	else
-		sort_adaptive(ps);
-}
+	t_node	*t1;
+	t_node	*t2;
+	long	mistake;
+	long	total_pairs;
 
-// check teammate sorting algo if ps_is_sorted guard is added.
+	if (!node || !node->next)
+		return (0);
+	t1 = node;
+	mistake = 0;
+	total_pairs = 0;
+	while (t1 != NULL)
+	{
+		t2 = t1->next;
+		while (t2 != NULL)
+		{
+			total_pairs += 1;
+			if (t1->rank > t2->rank)
+				mistake++;
+			t2 = t2->next;
+		}
+		t1 = t1->next;
+	}
+	return ((double)mistake / total_pairs);
+}
