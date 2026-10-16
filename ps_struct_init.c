@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 18:38:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 18:38:49 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 18:51:30 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	*ps_memset(void *s, int c, size_t n)
 {
-		unsigned char	*ptr;
-		size_t			i;
+	unsigned char	*ptr;
+	size_t			i;
 
-		i = 0;
-		ptr = (unsigned char *)s;
-		while (i < n)
-				ptr[i++] = (unsigned char)c;
-		return (s);
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+		ptr[i++] = (unsigned char)c;
+	return (s);
 }
 
 void	ps_init(t_ps *ps)
