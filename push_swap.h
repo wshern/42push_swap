@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/15 13:29:16 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 16:22:26 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_ps
 void	assign_rank(t_node *node);
 
 /* Disorder Calculation */
-double	disorder(t_node *node);
+double	calc_disorder(t_node *node);
 
 /* Sort - Complex (Radix) */
 void	sort_complex(t_ps *ps);
