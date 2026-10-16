@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 16:22:26 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 17:44:57 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef enum e_strat
 	STRAT_SIMPLE,
 	STRAT_MEDIUM,
 	STRAT_COMPLEX,
-	STRAT_ADAPTIVE,
+	STRAT_ADAPTIVE
 }	t_strat;
 
 typedef struct s_ps
@@ -59,11 +59,23 @@ typedef struct s_ps
 	int		bench;
 }	t_ps;
 
-/* Parse - Rank Assignment */
+/* Setup - Struct initialisation */
+void	ps_init(t_ps *ps);
+
+/* Input - Parsing */
+/* Input - Flags */
+
+/* Setup - Rank Assignment */
 void	assign_rank(t_node *node);
 
-/* Disorder Calculation */
+/* Setup - Disorder Calculation */
 double	calc_disorder(t_node *node);
+
+/* Dispatcher */
+void	dispatcher(t_ps *ps);
+
+/* Sort - Simple */
+/* Sort - Medium */
 
 /* Sort - Complex (Radix) */
 void	sort_complex(t_ps *ps);
@@ -95,6 +107,12 @@ void	op_rrotate(t_node **node);
 void	op_rra(t_ps *ps);
 void	op_rrb(t_ps *ps);
 void	op_rrr(t_ps *ps);
+
+/* Bench (--bench) */
+void	bench(t_ps *ps);
+
+/* Helper Functions */
+void	*ps_memset(void *s, int c, size_t n);
 
 /* Helper Functions - Node */
 t_node	*ps_ndnew(int data, int rank);
