@@ -6,16 +6,16 @@
 #    By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/03 16:58:36 by werlim            #+#    #+#              #
-#    Updated: 2026/09/03 18:32:31 by werlim           ###   ########.fr        #
+#    Updated: 2026/10/15 13:25:22 by werlim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libftprintf.a
+NAME	= psprintf.a
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 
-SRCS	= ft_printf.c ftp_putchar.c ftp_putstr.c ftp_putnbr.c
+SRCS	= ps_printf.c ps_putchar.c ps_putstr.c ps_putnbr.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -24,7 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-%.o: %.c ft_printf.h
+%.o: %.c ps_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

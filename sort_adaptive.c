@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 18:33:19 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/13 18:44:44 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 16:46:10 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@ void	sort_adaptive(t_ps *ps)
 	double	disorder;
 
 	disorder = ps->disorder;
-	if (disorder == 0.0)
-		return ;
 	if (disorder < 0.2)
-	{
 		sort_simple(ps);
-	}
 	else if (disorder >= 0.2 && disorder < 0.5)
 		sort_medium(ps);
 	else

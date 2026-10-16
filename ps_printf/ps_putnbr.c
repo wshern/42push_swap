@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftp_putnbr.c                                       :+:      :+:    :+:   */
+/*   ps_putnbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 20:34:18 by werlim            #+#    #+#             */
-/*   Updated: 2026/09/03 20:41:39 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/15 12:52:24 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ps_printf.h"
 
-static const char *const	g_dec = "0123456789";
-static const char *const	g_hexlow = "0123456789abcdef";
-static const char *const	g_hexup = "0123456789ABCDEF";
-
-static int	ftp_putnbr(unsigned long nbr, int base, const char *alnum)
+static int	ps_putnbr(const int fd, unsigned long nbr,
+	int base, const char *alnum)
 {
 	char	result;
 	int		counter;
@@ -25,52 +22,69 @@ static int	ftp_putnbr(unsigned long nbr, int base, const char *alnum)
 	if (nbr / base == 0)
 	{
 		result = alnum[nbr];
-		counter += ftp_putchar(result);
+		counter += ps_putchar(fd, result);
 	}
 	else
 	{
-		counter += ftp_putnbr((nbr / base), base, alnum);
-		counter += ftp_putnbr((nbr % base), base, alnum);
+		counter += ps_putnbr(fd, (nbr / base), base, alnum);
+		counter += ps_putnbr(fd, (nbr % base), base, alnum);
 	}
 	return (counter);
 }
 
-int	handler_int(int nbr)
+int	handler_int(const int fd, int nbr)
 {
 	int	counter;
 
 	if (nbr == -2147483648)
-		return (ftp_putstr("-2147483648"));
+		return (ps_putstr(fd, "-2147483648"));
 	counter = 0;
 	if (nbr < 0)
 	{
-		counter += ftp_putchar('-');
+		counter += ps_putchar(fd, '-');
 		nbr = -nbr;
 	}
-	counter += ftp_putnbr(nbr, 10, g_dec);
+	counter += ps_putnbr(fd, nbr, 10, "0123456789");
 	return (counter);
 }
 
-int	handler_unsigned(unsigned int nbr, char type)
+int	handler_unsigned(const int fd, unsigned int nbr, char type)
 {
 	if (type == 'u')
-		return (ftp_putnbr(nbr, 10, g_dec));
+		return (ps_putnbr(fd, nbr, 10, "0123456789"));
 	if (type == 'x')
-		return (ftp_putnbr(nbr, 16, g_hexlow));
+		return (ps_putnbr(fd, nbr, 16, "0123456789abcdef"));
 	if (type == 'X')
-		return (ftp_putnbr(nbr, 16, g_hexup));
+		return (ps_putnbr(fd, nbr, 16, "0123456789ABCDEF"));
 	return (0);
 }
 
-int	handler_ptr(unsigned long nbr)
+int	handler_ptr(const int fd, unsigned long nbr)
 {
 	int	counter;
 
 	if (!nbr)
-		return (ftp_putstr("(nil)"));
+		return (ps_putstr(fd, "(nil)"));
 	counter = 0;
-	counter += ftp_putstr("0x");
-	counter += ftp_putnbr(nbr, 16, g_hexlow);
+	counter += ps_putstr(fd, "0x");
+	counter += ps_putnbr(fd, nbr, 16, "0123456789abcdef");
+	return (counter);
+}
+
+int	handler_putfloat(const int fd, double nbr)
+{
+	int	n1;
+	int	n2;
+	int	counter;
+
+	counter = 0;
+	n1 = (int)(nbr * 100 + 0.5) / 100;
+	n2 = (int)(nbr * 100 + 0.5) % 100;
+	counter += handler_int(fd, n1);
+	counter += ps_putchar(fd, '.');
+	if (n2 < 10)
+		counter += ps_putchar(fd, '0');
+	counter += handler_int(fd, n2);
 	return (counter);
 }
 

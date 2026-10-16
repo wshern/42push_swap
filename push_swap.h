@@ -6,15 +6,14 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/15 10:52:10 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 16:22:26 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
+# include "ps_printf/ps_printf.h"
 
 typedef struct s_node
 {
@@ -39,22 +38,32 @@ typedef enum e_op
 	OP_NUM
 }	t_op;
 
+typedef enum e_strat
+{
+	STRAT_SIMPLE,
+	STRAT_MEDIUM,
+	STRAT_COMPLEX,
+	STRAT_ADAPTIVE,
+}	t_strat;
+
 typedef struct s_ps
 {
 	t_node	*a;
 	t_node	*b;
 	int		size_a;
 	int		size_b;
-	int		counter[OP_NUM];
 	double	disorder;
-	char	*strategy;
+	int		type_strat;
+	int		type_class;
+	int		counter[OP_NUM];
+	int		bench;
 }	t_ps;
 
 /* Parse - Rank Assignment */
 void	assign_rank(t_node *node);
 
 /* Disorder Calculation */
-double	disorder(t_node *node);
+double	calc_disorder(t_node *node);
 
 /* Sort - Complex (Radix) */
 void	sort_complex(t_ps *ps);
@@ -87,10 +96,10 @@ void	op_rra(t_ps *ps);
 void	op_rrb(t_ps *ps);
 void	op_rrr(t_ps *ps);
 
-/* Linked List Helper Functions */
-t_node	*ftps_ndnew(int data, int rank);
-t_node	*ftps_ndlast(t_node *node);
-void	ftps_ndaddlast(t_node **node, t_node *new);
-void	ftps_ndclear(t_node **node);
+/* Helper Functions - Node */
+t_node	*ps_ndnew(int data, int rank);
+t_node	*ps_ndlast(t_node *node);
+void	ps_ndaddlast(t_node **node, t_node *new);
+void	ps_ndclear(t_node **node);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 02:42:43 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/12 15:53:22 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 16:51:58 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	op_pa(t_ps *ps)
 	ps->size_a += num;
 	ps->size_b -= num;
 	ps->counter[OP_PA]++;
-	ft_printf("pa\n");
+	ps_printf(1, "pa\n");
 }
 
 void	op_pb(t_ps *ps)
@@ -44,5 +44,5 @@ void	op_pb(t_ps *ps)
 	ps->size_b += num;
 	ps->size_a -= num;
 	ps->counter[OP_PB]++;
-	ft_printf("pb\n");
+	ps_printf(1, "pb\n");
 }

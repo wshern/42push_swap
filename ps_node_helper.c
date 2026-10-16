@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 15:11:50 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/12 15:56:02 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/15 11:50:53 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*ftps_ndnew(int data, int rank)
+t_node	*ps_ndnew(int data, int rank)
 {
 	t_node	*node;
 
@@ -25,7 +25,7 @@ t_node	*ftps_ndnew(int data, int rank)
 	return (node);
 }
 
-t_node	*ftps_ndlast(t_node *node)
+t_node	*ps_ndlast(t_node *node)
 {
 	if (!node)
 		return (NULL);
@@ -34,7 +34,7 @@ t_node	*ftps_ndlast(t_node *node)
 	return (node);
 }
 
-void	ftps_ndaddlast(t_node **node, t_node *new)
+void	ps_ndaddlast(t_node **node, t_node *new)
 {
 	t_node	*temp;
 
@@ -49,7 +49,7 @@ void	ftps_ndaddlast(t_node **node, t_node *new)
 	temp->next = new;
 }
 
-void	ftps_ndclear(t_node **node)
+void	ps_ndclear(t_node **node)
 {
 	t_node	*temp;
 

@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 17:28:04 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/13 18:10:07 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 16:22:17 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-double	disorder(t_node *node)
+double	calc_disorder(t_node *node)
 {
 	t_node	*t1;
 	t_node	*t2;

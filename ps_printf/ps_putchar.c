@@ -6,14 +6,14 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 21:55:11 by werlim            #+#    #+#             */
-/*   Updated: 2026/09/03 20:38:29 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/15 13:16:15 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ps_printf.h"
 
-int	ftp_putchar(char c)
+int	ps_putchar(const int fd, char c)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 	return (1);
 }
