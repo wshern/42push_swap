@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 04:01:47 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/12 15:55:03 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/16 16:51:58 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	op_rra(t_ps *ps)
 {
 	op_rrotate(&ps->a);
 	ps->counter[OP_RRA]++;
-	ft_printf("rra\n");
+	ps_printf(1, "rra\n");
 }
 
 void	op_rrb(t_ps *ps)
 {
 	op_rrotate(&ps->b);
 	ps->counter[OP_RRB]++;
-	ft_printf("rrb\n");
+	ps_printf(1, "rrb\n");
 }
 
 void	op_rrr(t_ps *ps)
@@ -47,5 +47,5 @@ void	op_rrr(t_ps *ps)
 	op_rrotate(&ps->a);
 	op_rrotate(&ps->b);
 	ps->counter[OP_RRR]++;
-	ft_printf("rrr\n");
+	ps_printf(1, "rrr\n");
 }
