@@ -190,19 +190,3 @@ int parse_arguments(t_ps *ps, int ac, char **av)
     }
     return (1);
 }
-
-/* 
-int parse_numbers(t_ps *ps, char *arg)
-{
-    char **numbers;
-    int i;
-
-    numbers = ft_split(arg, ' ');
-    if (!numbers)
-        return (0);
-    i = 0;
-    while (numbers[i])
-    {
-        i++;
-    }
-}*/
