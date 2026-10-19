@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 19:08:51 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/19 17:03:32 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ typedef struct s_ps
 void	ps_init(t_ps *ps);
 
 /* Input - Parsing */
+int		ps_parser(int ac, char **av, t_ps *ps);
+
 /* Input - Flags */
 
 /* Setup - Rank Assignment */
@@ -72,7 +74,7 @@ void	assign_rank(t_node *node);
 double	calc_disorder(t_node *node);
 
 /* Dispatcher */
-void	dispatcher(t_ps *ps);
+void	ps_dispatcher(t_ps *ps);
 
 /* Sort - Simple */
 void	sort_simple(t_ps *ps);

@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 17:21:51 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 18:41:25 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/19 17:00:30 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	dispatcher(t_ps *ps)
+void	ps_dispatcher(t_ps *ps)
 {
 	ps->disorder = calc_disorder(ps->a);
 	if (ps->type_strat == STRAT_SIMPLE)
