@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:38:10 by lukperei          #+#    #+#             */
-/*   Updated: 2026/10/16 14:38:12 by lukperei         ###   ########.fr       */
+/*   Updated: 2026/10/20 15:47:14 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "push_swap.h"
 #include <limits.h>
 
 int is_valid_num(char *str)
@@ -168,7 +168,7 @@ int parse_numbers(t_ps *ps,char *arg)
     return (1);
 }
 
-int parse_arguments(t_ps *ps, int ac, char **av)
+int ps_parser(t_ps *ps, int ac, char **av)
 {
     int i;
     int strat_set;
