@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 17:21:51 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/19 17:00:30 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/22 19:23:25 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 void	ps_dispatcher(t_ps *ps)
 {
 	ps->disorder = calc_disorder(ps->a);
+	if (ps->disorder == 0.0)
+	{
+		if (ps->type_strat == STRAT_ADAPTIVE)
+			ps->type_class = STRAT_SIMPLE;
+		else
+			ps->type_class = ps->type_strat;
+		return;
+	}
 	if (ps->type_strat == STRAT_SIMPLE)
 		sort_simple(ps);
 	else if (ps->type_strat == STRAT_MEDIUM)

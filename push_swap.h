@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/20 15:41:32 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/22 19:06:55 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,22 @@ double	calc_disorder(t_node *node);
 /* Dispatcher */
 void	ps_dispatcher(t_ps *ps);
 
-/* Sort - Simple */
+/* Sort - Simple (Selection (Min) ) */
 void	sort_simple(t_ps *ps);
+int		find_max(t_node *a);
+int		find_min(t_node *a);
+int		find_min_position(t_node *a);
+void	move_min_top(t_ps *ps);
 
-/* Sort - Medium */
+/* Sort - Medium  (Chunk) */
 void	sort_medium(t_ps *ps);
+int		get_chunk_size(int size);
+int		in_chunk(t_node *node, int start, int end);
+int		chunk_remainder(t_node *a, int start, int end);
+int		find_mrank_b(t_node *b);
+int		find_mrank_position(t_node *b);
+void	move_mrank_top(t_ps *ps);
+void	push_sorted_b(t_ps *ps);
 
 /* Sort - Complex (Radix) */
 void	sort_complex(t_ps *ps);
