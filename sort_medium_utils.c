@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium_sort_utils.c                                :+:      :+:    :+:   */
+/*   sort_medium_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/5 14:38:10 by lukperei           #+#    #+#             */
-/*   Updated: 2026/10/10 14:38:12 by lukperei         ###   ########.fr       */
+/*   Created: 2026/10/05 14:38:10 by ukperei           #+#    #+#             */
+/*   Updated: 2026/10/22 18:36:15 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ int find_Mrank_b(t_node *b)
 }
 
 int find_Mrank_position(t_node *b)
-{   int max;
+{
+    int max;
     int position;
     int max_position;
 
@@ -75,7 +76,7 @@ int find_Mrank_position(t_node *b)
     return (max_position);
 }
 
-void move_Mrank_top(t_ps *ps)
+void    move_Mrank_top(t_ps *ps)
 {
     int position;
     int count;
@@ -100,7 +101,7 @@ void move_Mrank_top(t_ps *ps)
     }
 }
 
-void push_sorted_b(t_ps *ps)
+void    push_sorted_b(t_ps *ps)
 {
     while (ps->size_b > 0)
     {

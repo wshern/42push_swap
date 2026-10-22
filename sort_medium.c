@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 14:38:10 by ukperei           #+#    #+#             */
-/*   Updated: 2026/10/16 18:13:35 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/22 18:35:26 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_medium(t_ps *ps)
+void    sort_medium(t_ps *ps)
 {
     int size;
     int chunk_size;
