@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 14:38:10 by ukperei           #+#    #+#             */
-/*   Updated: 2026/10/22 18:39:30 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/22 19:07:22 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	sort_simple(t_ps *ps)
 {
+	ps->type_class = STRAT_SIMPLE;
 	while (ps->size_a > 0)
 	{
 		move_min_top(ps);

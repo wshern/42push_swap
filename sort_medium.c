@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 14:38:10 by ukperei           #+#    #+#             */
-/*   Updated: 2026/10/22 18:43:54 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/22 19:09:16 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	sort_medium(t_ps *ps)
 	int	start;
 	int	end;
 
+	ps->type_class = STRAT_MEDIUM;
 	size = ps->size_a;
 	chunk_size = get_chunk_size(size);
 	start = 0;
