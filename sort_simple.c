@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void sort_simple(t_ps *ps)
+void    sort_simple_all(t_ps *ps)
 {
     while (ps->size_a > 0)
     {
@@ -23,9 +23,9 @@ void sort_simple(t_ps *ps)
         op_pa(ps);
 }
 
-/*void   sort_two(t_ps *ps)
+void    sort_two(t_ps *ps)
 {
-    if (ps->a->value > ps->a->next->value)
+    if (ps->a->data > ps->a->next->data)
         op_sa(ps);
 }
 
@@ -34,15 +34,15 @@ void   sort_three(t_ps *ps)
     int max;
 
     max = find_max(ps->a);
-    if (ps->a->value == max)
+    if (ps->a->data == max)
         op_ra(ps);
-    else if (ps->a->next->value == max)
+    else if (ps->a->next->data == max)
         op_rra(ps);
-    if (ps->a->value > ps->a->next->value)
+    if (ps->a->data > ps->a->next->data)
         op_sa(ps);
 }
 
-void  sort_four(t_ps *ps)
+void    sort_four(t_ps *ps)
 {
     move_min_top(ps);
     op_pb(ps);
@@ -50,7 +50,7 @@ void  sort_four(t_ps *ps)
     op_pa(ps);
 }
 
-void sort_five(t_ps *ps)
+void    sort_five(t_ps *ps)
 {
     move_min_top(ps);
     op_pb(ps);
@@ -61,14 +61,19 @@ void sort_five(t_ps *ps)
     op_pa(ps);
 }
 
-void sort_simple(t_ps *ps)
+void    sort_simple(t_ps *ps)
 {
+    ps->type_class = STRAT_SIMPLE;
     if (ps->size_a <= 1)
         return ;
     if (ps->size_a == 2)
         sort_two(ps);
     else if (ps->size_a == 3)
         sort_three(ps);
+    else if (ps->size_a == 4)
+        sort_four(ps);
     else if (ps->size_a <= 5)
         sort_five(ps);
-}*/
+    else
+        sort_simple_all(ps);
+}
