@@ -12,9 +12,8 @@
 
 #include "push_swap.h"
 
-void	sort_simple(t_ps *ps)
+void	sort_simple_all(t_ps *ps)
 {
-	ps->type_class = STRAT_SIMPLE;
 	while (ps->size_a > 0)
 	{
 		move_min_top(ps);
@@ -64,12 +63,17 @@ void    sort_five(t_ps *ps)
 
 void    sort_simple(t_ps *ps)
 {
+    ps->type_class = STRAT_SIMPLE;
 	if (ps->size_a <= 1)
 		return ;
 	if (ps->size_a == 2)
 		sort_two(ps);
 	else if (ps->size_a == 3)
 		sort_three(ps);
+    else if (ps->size_a == 4)
+        sort_four(ps);
 	else if (ps->size_a <= 5)
 		sort_five(ps);
-}*/
+    else
+        sort_simple_all(ps);
+}
