@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <limits.h>
 
-int	is_valid_num(char *str)
+int is_valid_num(char *str)
 {
     int i;
 
@@ -61,19 +61,6 @@ int ps_atoi(const char *str, int *result)
         return (0);
     *result = (int)value;
     return (1);
-}
-
-static void free_split(char **numbers)
-{
-    int i;
-
-    i = 0;
-    while (numbers[i])
-    {
-        free(numbers[i]);
-        i++;
-    }
-    free(numbers);
 }
 
 int has_duplicate(t_node *a, int value)

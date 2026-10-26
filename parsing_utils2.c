@@ -51,6 +51,19 @@ int parse_flag(t_ps *ps, char *arg, int *strat_set)
     return (1);
 }
 
+static void free_split(char **numbers)
+{
+    int i;
+
+    i = 0;
+    while (numbers[i])
+    {
+        free(numbers[i]);
+        i++;
+    }
+    free(numbers);
+}
+
 int parse_numbers(t_ps *ps,char *arg)
 {
     char **numbers;
