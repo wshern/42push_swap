@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 18:38:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 18:51:30 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/30 12:07:27 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ps_memset(void *s, int c, size_t n)
+static void	*ps_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
 	size_t			i;
