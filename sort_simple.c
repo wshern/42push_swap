@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 14:38:10 by ukperei           #+#    #+#             */
-/*   Updated: 2026/10/22 19:07:22 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/30 11:54:40 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sort_simple_all(t_ps *ps)
 
 void    sort_two(t_ps *ps)
 {
-	if (ps->a->value > ps->a->next->value)
+	if (ps->a->rank > ps->a->next->rank)
 		op_sa(ps);
 }
 
@@ -34,11 +34,11 @@ void   sort_three(t_ps *ps)
 	int max;
 
 	max = find_max(ps->a);
-	if (ps->a->value == max)
+	if (ps->a->rank == max)
 		op_ra(ps);
-	else if (ps->a->next->value == max)
+	else if (ps->a->next->rank == max)
 		op_rra(ps);
-	if (ps->a->value > ps->a->next->value)
+	if (ps->a->rank > ps->a->next->rank)
 		op_sa(ps);
 }
 
