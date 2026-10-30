@@ -23,7 +23,7 @@ INCLUDES	=	-I. -I$(LIBFT_DIR) -I$(PRINTF_DIR)
 
 SRCS		=	main.c\
 				op_push.c op_swap.c op_rotate.c op_rev_rotate.c\
-				parsing_utils.c parsing_utils2.c\
+				ps_parse.c ps_parsing_utils.c\
 				ps_assign_rank.c ps_bench.c ps_disorder.c ps_dispatch.c\
 				ps_is_sorted.c ps_node_utils.c ps_struct_init.c\
 				sort_simple.c sort_simple_utils.c\
