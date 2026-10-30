@@ -69,6 +69,7 @@ int		parse_flag(t_ps *ps, char *arg, int *strat_set);
 int		is_valid_num(char *str);
 int		ps_atoi(const char *str, int *result);
 int		has_duplicate(t_node *a, int value);
+void	free_split(char **numbers);
 
 /* Setup - Rank Assignment */
 void	assign_rank(t_node *node);
