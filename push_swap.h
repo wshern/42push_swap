@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/22 19:45:15 by werlim           ###   ########.fr       */
+/*   Updated: 2026/10/30 12:07:31 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,13 @@ typedef struct s_ps
 /* Setup - Struct initialisation */
 void	ps_init(t_ps *ps);
 
-/* Input - Parse + Flag Ident */
+/* Input - Parse */
 int		ps_parser(t_ps *ps, int ac, char **av);
+int		parse_numbers(t_ps *ps, char *arg);
+int		parse_flag(t_ps *ps, char *arg, int *strat_set);
+int		is_valid_num(char *str);
+int		ps_atoi(const char *str, int *result);
+int		has_duplicate(t_node *a, int value);
 
 /* Setup - Rank Assignment */
 void	assign_rank(t_node *node);
@@ -76,6 +81,11 @@ void	ps_dispatcher(t_ps *ps);
 
 /* Sort - Simple (Selection(Min)) */
 void	sort_simple(t_ps *ps);
+void	sort_two(t_ps *ps);
+void	sort_three(t_ps *ps);
+void	sort_four(t_ps *ps);
+void	sort_five(t_ps *ps);
+void	sort_simple_all(t_ps *ps);
 int		find_max(t_node *a);
 int		find_min(t_node *a);
 int		find_min_position(t_node *a);
@@ -124,9 +134,6 @@ void	op_rrr(t_ps *ps);
 
 /* Bench (--bench) */
 void	bench(t_ps *ps);
-
-/* Helper Functions */
-void	*ps_memset(void *s, int c, size_t n);
 
 /* Helper Functions - Node */
 t_node	*ps_ndnew(int data, int rank);
