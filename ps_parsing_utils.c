@@ -13,6 +13,19 @@
 #include "push_swap.h"
 #include <limits.h>
 
+void free_split(char **numbers)
+{
+    int i;
+
+    i = 0;
+    while (numbers[i])
+    {
+        free(numbers[i]);
+        i++;
+    }
+    free(numbers);
+}
+
 int is_valid_num(char *str)
 {
     int i;
