@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/30 18:25:44 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/06 20:25:08 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/12 14:43:55 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/13 18:39:38 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
+	size_t	size;
 
-	i = 0;
-	if (ft_strlen(s1) == 0)
+	if (!s1 || !set)
 		return (ft_strdup(""));
-	j = ft_strlen(s1) - 1;
-	while (s1[i] && ft_strchr(set, s1[i]))
+	i = 0;
+	while (s1[i] && ft_strchr(set, s1[i]) != NULL)
 		i++;
-	while (j > i && ft_strchr(set, s1[j]))
+	if (s1[i] == '\0')
+	{
+		size = 0;
+		return (ft_substr(s1, i, size));
+	}
+	j = ft_strlen(s1) - 1;
+	while (j > i && ft_strchr(set, s1[j]) != NULL)
 		j--;
-	return (ft_substr(s1, i, j - i + 1));
+	size = j - i + 1;
+	return (ft_substr(s1, i, size));
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(void)
-{
-	char	*res = ft_strtrim("abcHello Worldabc", "abc");
-	char	*res2 = ft_strtrim("Hello World", " ");
-
-	printf("%s\n", res);
-	printf("%s\n", res2);
-
-	free(res);
-	free(res2);
-}*/

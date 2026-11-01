@@ -3,42 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/28 13:04:13 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/06 20:13:24 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/03 18:15:57 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/03 21:38:31 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	result;
+	char	char_c;
+	size_t	i;
 
-	result = (unsigned char)c;
-	while (*s != '\0')
+	i = 0;
+	char_c = (char)c;
+	while (s[i])
 	{
-		if ((unsigned char)*s == result)
-			return ((char *)s);
-		s++;
+		if (s[i] == char_c)
+			return ((char *)&s[i]);
+		i++;
 	}
-	if (result == '\0')
-		return ((char *)s);
+	if (char_c == '\0')
+		return ((char *)&s[i]);
 	return (NULL);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*s1 = "Hello";
-
-	printf("String Head: %p\n", (void *)s1);
-	printf("String: %s\n", s1);
-	printf("Expected l position: %p\n", (void *)(strchr(s1, 'l')));
-	printf("Returned l position: %p\n", (void *)(ft_strchr(s1, 'l')));
-	printf("Expected null position: %p\n", (void *)(strchr(s1, '\0')));
-	printf("Returned null position: %p\n", (void *)(ft_strchr(s1, '\0')));
-}*/

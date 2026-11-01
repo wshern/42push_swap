@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/05 15:31:05 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/05 17:32:09 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/20 19:47:52 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/21 18:13:45 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*cpylist;
+	t_list	*newlist;
 	t_list	*newnode;
+	void	*newcontent;
 
-	if (lst == NULL || f == NULL || del == NULL)
+	if (!lst || !f || !del)
 		return (NULL);
-	cpylist = NULL;
+	newlist = NULL;
 	while (lst != NULL)
 	{
-		newnode = ft_lstnew(f(lst->content));
+		newcontent = f(lst->content);
+		newnode = ft_lstnew(newcontent);
 		if (newnode == NULL)
 		{
-			ft_lstclear(&cpylist, del);
+			del(newcontent);
+			ft_lstclear(&newlist, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&cpylist, newnode);
+		ft_lstadd_back(&newlist, newnode);
 		lst = lst->next;
 	}
-	return (cpylist);
+	return (newlist);
 }

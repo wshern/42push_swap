@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/03 19:09:33 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/04 15:59:01 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/14 16:35:24 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/18 20:45:40 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
-	{
-		write (fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	if (n >= 0 && n <= 9)
-		ft_putchar_fd(n + '0', fd);
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
+	int		i;
+	char	*str;
+
+	i = 0;
+	str = ft_itoa(n);
+	while (str[i])
+		ft_putchar_fd(str[i++], fd);
+	free(str);
 }
+
+/*
+#include <stdio.h>
+int main(void)
+{
+	int i = 1234;
+	int fd = 1;
+
+	ft_putnbr_fd(i, fd);
+	return (0);
+}*/

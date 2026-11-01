@@ -3,81 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/03 14:31:05 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/06 15:52:38 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/13 15:27:15 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/13 16:18:59 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static int	ft_intlen(int n)
+static int	numlen(long n)
 {
-	long long	temp;
-	int			count;
+	int	i;
 
-	count = 0;
-	temp = n;
-	if (n == 0)
-		return (1);
-	if (temp < 0)
+	if (n < 0)
+		n = -n;
+	i = 0;
+	while (n / 10 > 0)
 	{
-		temp = -temp;
-		count++;
+		n /= 10;
+		i++;
 	}
-	while (temp != '\0')
-	{
-		temp = temp / 10;
-		count++;
-	}
-	return (count);
+	i++;
+	return (i);
 }
 
-static char	*ft_itoaputnbr(long long nbr, char *str, int len)
+static char	*placenum(long num, char *ptr, int i)
 {
-	if (nbr == '\0')
-		str[0] = '0';
-	if (nbr < 0)
+	ptr[i] = '\0';
+	i--;
+	if (num < 0)
 	{
-		str[0] = '-';
-		nbr = -nbr;
+		ptr[0] = '-';
+		num = -num;
 	}
-	while (nbr > 0)
+	while (num / 10 > 0)
 	{
-		len--;
-		str[len] = (nbr % 10) + '0';
-		nbr = nbr / 10;
+		ptr[i] = (num % 10) + '0';
+		i--;
+		num /= 10;
 	}
-	return (str);
+	ptr[i] = (num % 10) + '0';
+	return (ptr);
 }
 
 char	*ft_itoa(int n)
 {
-	long long	nbr;
-	int			len;
-	char		*str;
+	long	num;
+	int		numlength;
+	int		isnve;
+	int		i;
+	char	*ptr;
 
-	len = ft_intlen(n);
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (str == '\0')
+	num = n;
+	isnve = 0;
+	if (num < 0)
+		isnve = 1;
+	numlength = numlen(num);
+	ptr = (char *)malloc(sizeof(char) * (numlength + isnve + 1));
+	if (ptr == NULL)
 		return (NULL);
-	str[len] = '\0';
-	nbr = n;
-	return (ft_itoaputnbr(nbr, str, len));
+	i = numlength + isnve;
+	return (placenum(num, ptr, i));
 }
 /*
 #include <stdio.h>
-
 int	main(void)
 {
-	int	arr[3] = {2147483647, -2147483648, 0};
+	char *c;
+	int	n = -2147483648;
 
-	for (int i = 0; i < 3; i++)
-	{
-		printf("'%s'", ft_itoa(arr[i]));
-	}
-	printf("\n");
-}
-*/
+	c = ft_itoa(n);
+	printf("%c\n", c[0]);
+	printf("result: %s\n", c);
+	free(c);
+	return (0);
+}*/

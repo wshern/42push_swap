@@ -3,116 +3,105 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/31 12:19:49 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/06 18:29:13 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/18 16:48:37 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/21 19:00:35 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	wordcount(char const *s, char c)
+static size_t	wordcounter(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
 
 	i = 0;
 	count = 0;
-	if (*s == '\0')
-		return (0);
-	while (s[i] != '\0')
+	if (s[0] == '\0')
+		return (count);
+	while (s[i])
 	{
-		if (s[i] != c)
-		{
-			count++;
-			while (s[i] != '\0' && s[i] != c)
-				i++;
-		}
-		else
+		while (s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
+		count++;
+		while (s[i] != c && s[i] != '\0')
 			i++;
 	}
 	return (count);
 }
 
-static void	memfree(char **array, int count)
+static size_t	wordlen(char const *s, char c, const size_t i)
 {
-	while (count > 0)
-	{
-		count--;
-		free(array[count]);
-	}
-	free(array);
+	size_t	len;
+
+	len = i;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len - i);
 }
 
-static int	memafail(char **array, int count)
-{
-	if (array[count] == (NULL))
-	{
-		memfree(array, count);
-		return (0);
-	}
-	return (1);
-}
-
-static char	**fillarray(char **array, const char *s, char c)
+static char	**f_arr(char const *s, char c, char **arr)
 {
 	size_t	i;
-	size_t	start;
-	size_t	arraycount;
+	size_t	j;
 
 	i = 0;
-	arraycount = 0;
-	while (s[i] != '\0')
+	j = 0;
+	while (s[i])
 	{
-		if (s[i] != c)
+		while (s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
+		arr[j++] = ft_substr(s, i, wordlen(s, c, i));
+		if (arr[j - 1] == NULL)
 		{
-			start = i;
-			while (s[i] != '\0' && s[i] != c)
-				i++;
-			array[arraycount] = ft_substr(s, start, i - start);
-			if (memafail(array, arraycount) == 0)
-				return (NULL);
-			arraycount++;
+			while (j > 0)
+				free(arr[--j]);
+			free(arr);
+			return (NULL);
 		}
-		else
+		while (s[i] != c && s[i] != '\0')
 			i++;
 	}
-	array[arraycount] = NULL;
-	return (array);
+	return (arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**array;
-	size_t	size;
+	char	**arr;
+	size_t	wordcount;
 
-	if (s == NULL)
-		return (0);
-	size = wordcount(s, c) + 1;
-	array = (char **)malloc(sizeof(char *) * size);
-	if (array == NULL)
-		return (0);
-	array = fillarray(array, s, c);
-	return (array);
+	if (!s)
+		return (NULL);
+	wordcount = wordcounter(s, c);
+	arr = (char **)malloc(sizeof(char *) * (wordcount + 1));
+	if (arr == NULL)
+		return (NULL);
+	arr[wordcount] = NULL;
+	if (wordcount == 0)
+		return (arr);
+	else
+		arr = f_arr(s, c, arr);
+	return (arr);
 }
 /*
-#include <stdio.h>
-
-int	main(void)
+int main(void)
 {
-	char	*s1 = "Hello world, this is a test string";
-	char	**res = ft_split(s1, ' ');
+	char *s = "xxtestx xxxwor dlsxx ";
+	char c = 'x';
+	char **arr;
+	int i = 0;
 
-	if (!res)
-	{
-		printf("Allocation failed or returned NULL\n");
-		return(1);
-	}
-	for (int i = 0; i < 8; i++)
-	{
-		printf("%s\n", res[i]);
-		free(res[i]);
-	}
-	free(res);
+	arr = ft_split(s, c);
+	if (arr == NULL)
+		return (0);
+	while (arr[i])
+		printf("fmain - %s\n", arr[i++]);
+	free(arr);
+	return (0);
 }*/
