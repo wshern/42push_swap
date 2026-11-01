@@ -3,56 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/30 17:06:58 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/06 20:16:03 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/06 19:04:32 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/13 18:39:24 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*join;
-	int		i;
-	int		j;
+	size_t	len1;
+	size_t	len2;
+	size_t	i;
+	size_t	j;
+	char	*dest;
 
+	len1 = 0;
+	len2 = 0;
+	if (s1 != NULL)
+		len1 = ft_strlen(s1);
+	if (s2 != NULL)
+		len2 = ft_strlen(s2);
+	dest = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	if (dest == NULL)
+		return (NULL);
 	i = 0;
 	j = 0;
-	join = (char *) malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (join == '\0')
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		join[j] = s1[i];
-		j++;
-		i++;
-	}
+	while (j < len1)
+		dest[j++] = s1[i++];
 	i = 0;
-	while (s2[i])
-	{
-		join[j] = s2[i];
-		j++;
-		i++;
-	}
-	join[j] = 0;
-	return (join);
+	while (j < len1 + len2)
+		dest[j++] = s2[i++];
+	dest[j] = '\0';
+	return (dest);
 }
+
 /*
-#include <stdio.h>
-
-int	main(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*s1 = "Hello ";
-	char	*s2 = "World";
-	char	*res = ft_strjoin(s1, s2);
+	size_t	len1;
+	size_t	len2;
+	char	*dest;
 
-	for (int i = 0; i < 12; i++)
-	{
-		printf("%c", res[i]);
-	}
-	printf("\n");
-	free(res);
+	if (s1 == NULL && s1 == s2)
+		return (ft_strdup(""));
+	else if (s1 == NULL)
+		return (ft_strdup(s2));
+	else if (s2 == NULL)
+		return (ft_strdup(s1));
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	dest = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	if (dest == NULL)
+		return (NULL);
+	ft_strlcpy(dest, s1, len1 + 1);
+	ft_strlcat(dest, s2, len1 + len2 + 1);
+	return (dest);
 }*/

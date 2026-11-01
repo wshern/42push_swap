@@ -3,43 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/28 13:25:41 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/06 20:24:33 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/03 18:27:57 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/03 21:40:00 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
+// ie s="abc", strlen = 3 => i = 3 + 1 is because (i-- > 0) condition
+// so (i = 4 > 0) => correct, then i-- becomes 3 which is null terminator
 char	*ft_strrchr(const char *s, int c)
 {
-	char			*lastmatch;
-	unsigned char	result;
+	size_t	i;
+	char	char_c;
 
-	lastmatch = NULL;
-	result = (unsigned char)c;
-	while (*s != '\0')
+	i = ft_strlen(s) + 1;
+	char_c = (char)c;
+	while (i-- > 0)
 	{
-		if ((unsigned char)*s == result)
-			lastmatch = (char *)s;
-		s++;
+		if (s[i] == char_c)
+			return ((char *)&s[i]);
 	}
-	if (result == '\0')
-		return ((char *)s);
-	return (lastmatch);
+	return (NULL);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*s1 = "Hello";
-
-	printf("%p\n", (void *)s1);
-	printf("%p\n", (void *)(strrchr(s1, 'l')));
-	printf("%p\n", (void *)(ft_strrchr(s1, 'l')));
-	printf("%p\n", (void *)(strrchr(s1, '\0')));
-	printf("%p\n", (void *)(ft_strrchr(s1, '\0')));
-}*/

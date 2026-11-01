@@ -3,69 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/28 18:16:51 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/06 15:58:09 by lukperei         ###   ########.fr       */
+/*   Created: 2026/07/29 16:48:54 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/03 21:42:55 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	char		*d;
-	const char	*s;
-	size_t		i;
+	size_t				i;
+	unsigned char		*p_dest;
+	const unsigned char	*p_src;
 
-	d = (char *)dest;
-	s = (const char *)src;
-	if (d == s || n == 0)
+	if (dest == NULL && src == NULL)
 		return (dest);
-	if (d < s)
-		ft_memcpy(dest, src, n);
+	p_dest = (unsigned char *)dest;
+	p_src = (const unsigned char *)src;
+	if (dest < src)
+		ft_memcpy(dest, src, len);
 	else
 	{
-		i = n;
-		while (i > 0)
-		{
-			d[i - 1] = s[i - 1];
-			i--;
-		}
+		i = len;
+		while (i-- > 0)
+			p_dest[i] = p_src[i];
 	}
 	return (dest);
 }
-/*
-#include <string.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	char	src[6] = "Hello";
-	char	dst[6] = "World";
-
-	char	src2[6] = "Hello";
-	char	dst2[6] = "World";
-
-	char	src3[6] = "Hello";
-	char	dst3[6] = "World";
-
-	char	src4[6] = "Hello";
-	char	dst4[6] = "World";
-
-	char	src5[6] = "Hello";
-	char	*dst5 = &src5[1];
-
-	char	src6[6] = "Hello";
-	char	*dst6 = &src6[1];
-
-
-	printf("%s\n", memmove(dst, src, 6));
-	printf("%s\n", ft_memmove(dst2, src2, 6));
-
-	printf("%s\n", memmove(dst3, src3, 2));
-	printf("%s\n", ft_memmove(dst4, src4, 2));
-
-	printf("%s\n", memmove(dst5, src5, 4));
-	printf("%s\n", ft_memmove(dst6, src6, 4));
-}*/

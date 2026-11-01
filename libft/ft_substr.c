@@ -3,51 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lukperei <lukperei@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/30 15:19:17 by lukperei          #+#    #+#             */
-/*   Updated: 2026/08/06 18:31:18 by lukperei         ###   ########.fr       */
+/*   Created: 2026/08/06 16:08:26 by werlim            #+#    #+#             */
+/*   Updated: 2026/08/06 17:36:23 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+
+static size_t	copycount(size_t s_len, unsigned int start, size_t len)
+{
+	if (start > s_len)
+		return (0);
+	if (len < (s_len - start))
+		return (len);
+	else
+		return ((s_len - start));
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*ptr;
 	size_t	i;
-	char	*str;
-	size_t	slen;
+	size_t	j;
+	size_t	cpycount;
 
 	if (s == NULL)
 		return (NULL);
-	slen = ft_strlen(s);
-	if (start > slen)
-		return (ft_strdup(""));
-	if ((len > slen - start))
-		len = slen - start;
-	str = ft_calloc(len + 1, sizeof(char));
-	if (str == NULL)
+	cpycount = copycount(ft_strlen(s), start, len);
+	ptr = (char *)malloc(sizeof(char) * (cpycount + 1));
+	if (ptr == NULL)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	return (str);
+	i = start;
+	j = 0;
+	while (j < cpycount)
+		ptr[j++] = s[i++];
+	ptr[j] = '\0';
+	return (ptr);
 }
 /*
-#include <stdio.h>
-
-int	main(void)
+int main(void)
 {
-	char	*s1 = "Hello, World";
-	char	*res = ft_substr(s1, 7, 4);
-
-	for (int i = 0; i < 5; i++)
-		printf("%c", res[i]);
-	printf("\n");
-	free(res);
-}
-*/
+	char *str = "hello";
+	char *ptr;
+	
+	ptr = ft_substr(str, 3, 10);
+	printf("result: %s", ptr);
+	free(ptr);
+	return (0);
+}*/
