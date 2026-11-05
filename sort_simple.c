@@ -64,7 +64,7 @@ void    sort_five(t_ps *ps)
 void    sort_simple(t_ps *ps)
 {
     ps->type_class = STRAT_SIMPLE;
-	if (ps->size_a <= 1)
+	if (try_rotation_sorting(ps))
 		return ;
 	if (ps->size_a == 2)
 		sort_two(ps);

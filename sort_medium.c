@@ -20,6 +20,8 @@ void	sort_medium(t_ps *ps)
 	int	end;
 
 	ps->type_class = STRAT_MEDIUM;
+	if (try_rotation_sorting(ps))
+		return ;
 	size = ps->size_a;
 	chunk_size = get_chunk_size(size);
 	start = 0;
