@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 14:38:10 by ukperei           #+#    #+#             */
-/*   Updated: 2026/10/22 18:39:15 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/01 21:13:33 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	find_max(t_node *a)
 {
 	int	max;
 
-	max = a->data;
+	max = a->rank;
 	while (a)
 	{
-		if (a->data > max)
-			max = a->data;
+		if (a->rank > max)
+			max = a->rank;
 		a = a->next;
 	}
 	return (max);
@@ -30,11 +30,11 @@ int	find_min(t_node *a)
 {
 	int	min;
 
-	min = a->data;
+	min = a->rank;
 	while (a)
 	{
-		if (a->data < min)
-			min = a->data;
+		if (a->rank < min)
+			min = a->rank;
 		a = a->next;
 	}
 	return (min);
@@ -46,14 +46,14 @@ int	find_min_position(t_node *a)
 	int	position;
 	int	min_position;
 
-	min = a->data;
+	min = a->rank;
 	position = 0;
 	min_position = 0;
 	while (a)
 	{
-		if (a->data < min)
+		if (a->rank < min)
 		{
-			min = a->data;
+			min = a->rank;
 			min_position = position;
 		}
 		position++;
