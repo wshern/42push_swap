@@ -46,16 +46,6 @@ int	is_valid_num(char *str)
 	return (1);
 }
 
-static int  overflow_check(long value, int digit)
-{
-	if (value > 2147483648L / 10)
-		return (1);
-	if (value == 2147483648L / 10
-		&& digit > 2147483648L % 10)
-		return (1);
-	return (0);
-}
-
 static int	get_sign(const char **str)
 {
 	int	sign;
@@ -82,7 +72,9 @@ int	ps_atoi(const char *str, int *result)
 	while (*str)
 	{
     	digit = *str - '0';
-    	if (overflow_check(value, digit))
+    	if (value > 2147483648L / 10 
+			|| (value == 2147483648L / 10
+				&& digit > 2147483648L % 10))
 			return (0);
 		value = value * 10 + digit;
 		str++;
