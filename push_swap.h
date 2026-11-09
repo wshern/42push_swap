@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/11/09 15:41:24 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/09 21:37:24 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	sort_four(t_ps *ps);
 void	sort_five(t_ps *ps);
 void	sort_simple_all(t_ps *ps);
 int		find_max(t_node *a);
-int		find_min(t_node *a);
 int		find_min_position(t_node *a);
 void	move_min_top(t_ps *ps);
 int		try_rotation_sorting(t_ps *ps);
@@ -99,7 +98,6 @@ void	sort_medium(t_ps *ps);
 int		get_chunk_size(int size);
 int		in_chunk(t_node *node, int start, int end);
 int		chunk_remainder(t_node *a, int start, int end);
-int		find_mrank_b(t_node *b);
 int		find_mrank_position(t_node *b);
 void	move_mrank_top(t_ps *ps);
 void	push_sorted_b(t_ps *ps);
