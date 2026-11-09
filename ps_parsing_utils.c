@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:38:10 by lukperei          #+#    #+#             */
-/*   Updated: 2026/11/09 15:33:22 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/09 21:40:51 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ static int	get_sign(const char **str)
 /* basically just atoi but we need to check for overflows*/
 int	ps_atoi(const char *str, int *result)
 {
-	long value;
-	int sign;
-	int digit;
+	long	value;
+	int		sign;
+	int		digit;
 
 	value = 0;
 	sign = get_sign(&str);
 	while (*str)
 	{
-    	digit = *str - '0';
-    	if (value > 2147483648L / 10 
+		digit = *str - '0';
+		if (value > 2147483648L / 10
 			|| (value == 2147483648L / 10
 				&& digit > 2147483648L % 10))
 			return (0);
