@@ -6,7 +6,7 @@
 #    By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/27 00:41:53 by werlim            #+#    #+#              #
-#    Updated: 2026/10/30 11:50:36 by werlim           ###   ########.fr        #
+#    Updated: 2026/11/09 16:07:34 by werlim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS		=	main.c\
 				ps_parse.c ps_parsing_utils.c\
 				ps_assign_rank.c ps_bench.c ps_disorder.c ps_dispatch.c\
 				ps_is_sorted.c ps_node_utils.c ps_struct_init.c\
-				sort_simple.c sort_simple_utils.c\
+				sort_simple.c sort_simple2.c\
+				sort_simple_utils.c sort_simple_utils2.c\
 				sort_medium.c sort_medium_utils.c sort_medium_utils2.c\
 				sort_complex.c sort_adaptive.c
 
