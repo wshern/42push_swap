@@ -40,20 +40,6 @@ int	chunk_remainder(t_node *a, int start, int end)
 	return (0);
 }
 
-int	find_mrank_b(t_node *b)
-{
-	int	max;
-
-	max = b->rank;
-	while (b)
-	{
-		if (b->rank > max)
-			max = b->rank;
-		b = b->next;
-	}
-	return (max);
-}
-
 int	find_mrank_position(t_node *b)
 {
 	int	max;
@@ -75,3 +61,18 @@ int	find_mrank_position(t_node *b)
 	}
 	return (max_position);
 }
+
+/*
+int	find_mrank_b(t_node *b)
+{
+	int	max;
+
+	max = b->rank;
+	while (b)
+	{
+		if (b->rank > max)
+			max = b->rank;
+		b = b->next;
+	}
+	return (max);
+}*/

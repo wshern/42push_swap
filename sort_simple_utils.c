@@ -26,20 +26,6 @@ int	find_max(t_node *a)
 	return (max);
 }
 
-int	find_min(t_node *a)
-{
-	int	min;
-
-	min = a->rank;
-	while (a)
-	{
-		if (a->rank < min)
-			min = a->rank;
-		a = a->next;
-	}
-	return (min);
-}
-
 int	find_min_position(t_node *a)
 {
 	int	min;
@@ -86,3 +72,18 @@ void	move_min_top(t_ps *ps)
 		}
 	}
 }
+
+/*
+int	find_min(t_node *a)
+{
+	int	min;
+
+	min = a->rank;
+	while (a)
+	{
+		if (a->rank < min)
+			min = a->rank;
+		a = a->next;
+	}
+	return (min);
+}*/
