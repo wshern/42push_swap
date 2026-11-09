@@ -46,26 +46,43 @@ int	is_valid_num(char *str)
 	return (1);
 }
 
+static int  overflow_check(long value, int digit)
+{
+	if (value > 2147483648L / 10)
+		return (1);
+	if (value == 2147483648L / 10
+		&& digit > 2147483648L % 10)
+		return (1);
+	return (0);
+}
+
+static int	get_sign(const char **str)
+{
+	int	sign;
+
+	sign = 1;
+	if (**str == '-' || **str == '+')
+	{
+		if (**str == '-')
+			sign = -1;
+		(*str)++;
+	}
+	return (sign);
+}
+
 /* basically just atoi but we need to check for overflows*/
 int	ps_atoi(const char *str, int *result)
 {
-	long	value;
-	int		sign;
-	int		digit;
+	long value;
+	int sign;
+	int digit;
 
 	value = 0;
-	sign = 1;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
+	sign = get_sign(&str);
 	while (*str)
 	{
-		digit = *str - '0';
-		if (value > 2147483648L / 10
-			|| (value == 2147483648L / 10 && digit > 2147483648L % 10))
+    	digit = *str - '0';
+    	if (overflow_check(value, digit))
 			return (0);
 		value = value * 10 + digit;
 		str++;
@@ -79,6 +96,13 @@ int	ps_atoi(const char *str, int *result)
 
 int	has_duplicate(t_node *a, int value)
 {
+	while (a)
+	{
+		if (a->data == value)
+			return (1);
+		a = a->next;
+	}
+	return (0);
 	while (a)
 	{
 		if (a->data == value)
