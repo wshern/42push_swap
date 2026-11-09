@@ -103,11 +103,4 @@ int	has_duplicate(t_node *a, int value)
 		a = a->next;
 	}
 	return (0);
-	while (a)
-	{
-		if (a->data == value)
-			return (1);
-		a = a->next;
-	}
-	return (0);
 }
