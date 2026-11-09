@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/11/01 17:53:47 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/06 00:48:26 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int		find_max(t_node *a);
 int		find_min(t_node *a);
 int		find_min_position(t_node *a);
 void	move_min_top(t_ps *ps);
+int try_rotation_sorting(t_ps *ps);
 
 /* Sort - Medium  (Chunk) */
 void	sort_medium(t_ps *ps);
