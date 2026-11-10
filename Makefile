@@ -6,7 +6,7 @@
 #    By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/27 00:41:53 by werlim            #+#    #+#              #
-#    Updated: 2026/11/09 16:07:34 by werlim           ###   ########.fr        #
+#    Updated: 2026/11/10 22:32:58 by werlim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,9 @@ INCLUDES	=	-I. -I$(LIBFT_DIR) -I$(PRINTF_DIR)
 
 SRCS		=	main.c\
 				op_push.c op_swap.c op_rotate.c op_rev_rotate.c\
-				ps_parse.c ps_parsing_utils.c\
-				ps_assign_rank.c ps_bench.c ps_disorder.c ps_dispatch.c\
+				parsing.c parsing_utils.c parsing_utils2.c\
+				ps_assign_rank.c ps_assign_flag.c\
+				ps_bench.c ps_disorder.c ps_dispatch.c\
 				ps_is_sorted.c ps_node_utils.c ps_struct_init.c\
 				sort_simple.c sort_simple2.c\
 				sort_simple_utils.c sort_simple_utils2.c\
