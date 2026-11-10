@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 13:37:21 by werlim            #+#    #+#             */
-/*   Updated: 2026/11/09 21:37:24 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 20:36:59 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ps_dispatcher(t_ps *ps);
 
 /* Sort - Simple (Selection(Min)) */
 void	sort_simple(t_ps *ps);
+void	sort_small_num(t_ps *ps);
 void	sort_two(t_ps *ps);
 void	sort_three(t_ps *ps);
 void	sort_four(t_ps *ps);
@@ -104,7 +105,6 @@ void	push_sorted_b(t_ps *ps);
 
 /* Sort - Complex (Radix) */
 void	sort_complex(t_ps *ps);
-void	radix_algo(t_ps *ps, int divide);
 
 /* Sort - Adaptive */
 void	sort_adaptive(t_ps *ps);
@@ -113,22 +113,18 @@ void	sort_adaptive(t_ps *ps);
 int		ps_is_sorted(t_node *node);
 
 /* Operations - Swap */
-void	op_swap(t_node **node);
 void	op_sa(t_ps *ps);
 void	op_sb(t_ps *ps);
 void	op_ss(t_ps *ps);
 
 /* Operations - Push */
-int		op_push(t_node **src, t_node **dest);
 void	op_pa(t_ps *ps);
 void	op_pb(t_ps *ps);
 
 /* Operations - Rotate */
-void	op_rotate(t_node **node);
 void	op_ra(t_ps *ps);
 void	op_rb(t_ps *ps);
 void	op_rr(t_ps *ps);
-void	op_rrotate(t_node **node);
 void	op_rra(t_ps *ps);
 void	op_rrb(t_ps *ps);
 void	op_rrr(t_ps *ps);

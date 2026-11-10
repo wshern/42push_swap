@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 03:21:09 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 19:07:46 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 20:37:19 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_rotate(t_node **node)
+static void	op_rotate(t_node **node)
 {
 	t_node	*temp;
 	t_node	*last;
