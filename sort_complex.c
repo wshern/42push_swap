@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 17:14:22 by werlim            #+#    #+#             */
-/*   Updated: 2026/11/10 20:39:54 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 20:57:42 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	sort_complex(t_ps *ps)
 	int	divide;
 	int	rank_max;
 
+	ps->type_class = STRAT_COMPLEX;
 	if (try_rotation_sorting(ps))
 		return ;
 	if (ps->size_a < 6)
@@ -41,7 +42,6 @@ void	sort_complex(t_ps *ps)
 		sort_small_num(ps);
 		return ;
 	}
-	ps->type_class = STRAT_COMPLEX;
 	divide = 1;
 	rank_max = ps->size_a - 1;
 	while (ps_is_sorted(ps->a) == 0 && rank_max / divide > 0)
