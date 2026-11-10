@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 17:14:22 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/15 15:45:30 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 20:57:42 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	radix_algo(t_ps *ps, int divide)
+static void	radix_algo(t_ps *ps, int divide)
 {
 	int	n;
 
@@ -35,6 +35,13 @@ void	sort_complex(t_ps *ps)
 	int	rank_max;
 
 	ps->type_class = STRAT_COMPLEX;
+	if (try_rotation_sorting(ps))
+		return ;
+	if (ps->size_a < 6)
+	{
+		sort_small_num(ps);
+		return ;
+	}
 	divide = 1;
 	rank_max = ps->size_a - 1;
 	while (ps_is_sorted(ps->a) == 0 && rank_max / divide > 0)

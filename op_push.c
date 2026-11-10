@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 02:42:43 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 16:51:58 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 20:37:10 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	op_push(t_node **src, t_node **dest)
+static int	op_push(t_node **src, t_node **dest)
 {
 	t_node	*temp;
 

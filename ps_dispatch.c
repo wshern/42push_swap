@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 17:21:51 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/22 19:44:17 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 20:59:08 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,3 @@ void	ps_dispatcher(t_ps *ps)
 	else
 		sort_adaptive(ps);
 }
-
-// check teammate sorting algo if ps_is_sorted guard is added.

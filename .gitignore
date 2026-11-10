@@ -7,3 +7,5 @@ bench.txt
 args.txt
 push_swap
 .vscode
+*.o
+*.a

@@ -6,13 +6,13 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:00:50 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/16 16:51:58 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 20:37:24 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	op_swap(t_node **node)
+static void	op_swap(t_node **node)
 {
 	t_node	*first;
 	t_node	*second;

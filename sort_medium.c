@@ -6,22 +6,19 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 14:38:10 by ukperei           #+#    #+#             */
-/*   Updated: 2026/10/22 19:09:16 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 20:31:31 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_medium(t_ps *ps)
+static void	sort_medium_passby(t_ps *ps)
 {
 	int	size;
 	int	chunk_size;
 	int	start;
 	int	end;
 
-	ps->type_class = STRAT_MEDIUM;
-	if (try_rotation_sorting(ps))
-		return ;
 	size = ps->size_a;
 	chunk_size = get_chunk_size(size);
 	start = 0;
@@ -39,4 +36,17 @@ void	sort_medium(t_ps *ps)
 		end += chunk_size;
 	}
 	push_sorted_b(ps);
+}
+
+void	sort_medium(t_ps *ps)
+{
+	ps->type_class = STRAT_MEDIUM;
+	if (try_rotation_sorting(ps))
+		return ;
+	if (ps->size_a < 6)
+	{
+		sort_small_num(ps);
+		return ;
+	}
+	sort_medium_passby(ps);
 }
