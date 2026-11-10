@@ -6,7 +6,7 @@
 /*   By: werlim <werlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 14:45:47 by werlim            #+#    #+#             */
-/*   Updated: 2026/10/22 18:44:15 by werlim           ###   ########.fr       */
+/*   Updated: 2026/11/10 17:37:05 by werlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main(int ac, char **av)
 	{
 		ps_ndclear(&ps.a);
 		ps_ndclear(&ps.b);
+		ps_printf(2, "Error\n");
+		return (0);
 	}
 	assign_rank(ps.a);
 	ps_dispatcher(&ps);
