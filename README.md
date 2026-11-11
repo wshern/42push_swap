@@ -4,7 +4,7 @@
 
 ## Description
 
-`push_swap` takes a list of integers and prints the shortest list of operations it can find to sort them, using two stacks (**a** and **b**) and 11 allowed operations (`sa sb ss pa pb ra rb rr rra rrb rrr`). The numbers start in a (the first argument is the top). At the end, a must be sorted with the smallest on top, and b must be empty.
+`push_swap` takes a list of integers and prints a short list of operations that sorts them, using two stacks (**a** and **b**) and 11 allowed operations (`sa sb ss pa pb ra rb rr rra rrb rrr`). The numbers start in a (the first argument is the top). At the end, a must be sorted with the smallest on top, and b must be empty.
 
 Before sorting, the program measures the **disorder** of a: the share of number pairs that are in the wrong order (0 = sorted, 1 = reversed). It then runs one of four strategies:
 
@@ -17,10 +17,12 @@ Before sorting, the program measures the **disorder** of a: the share of number 
 
 ### Contributions
 
-| Learner | Parts |
-|---------|-------|
-| werlim | Design and task split, header and structs, the 11 operations, list helpers, rank assignment, disorder, dispatcher, adaptive, radix sort, `--bench`, `ps_printf`, Makefile |
-| lukperei | Argument parsing and error checks, simple sort, medium sort helpers |
+| Learner | Parts | Files |
+|---------|-------|-------|
+| werlim | Design and task split, data structures, the 11 operations, list helpers, rank assignment, disorder, dispatcher, adaptive strategy, radix sort, medium sort main loop and push-back phase, `--bench`, `ps_printf`, Makefile | `push_swap.h`, `main.c`, `op_*.c`, `ps_node_utils.c`, `ps_struct_init.c`, `ps_assign_rank.c`, `ps_disorder.c`, `ps_dispatch.c`, `ps_is_sorted.c`, `ps_bench.c`, `sort_adaptive.c`, `sort_complex.c`, `ps_printf/` |
+| lukperei | Argument parsing and error checks, flag handling, simple sort, small-input sorts (2 to 5 numbers), rotation check, medium sort chunk helpers, libft | `parsing.c`, `parsing_utils.c`, `parsing_utils2.c`, `ps_assign_flag.c`, `sort_simple.c`, `sort_simple2.c`, `sort_simple_utils.c`, `sort_simple_utils2.c`, `sort_medium_utils.c`, `libft/` |
+
+We reviewed each other's code, and both of us can explain every part.
 
 ## Instructions
 
@@ -39,12 +41,19 @@ ARG="4 67 3 87 23"
 
 - Numbers can be separate arguments or one quoted string.
 - No arguments, or numbers already sorted: nothing is printed.
-- Bad input (not an integer, outside `int` range, duplicate, unknown flag): `Error` on stderr.
+- Bad input (not an integer, outside `int` range, duplicate, empty argument, unknown flag, two strategy flags): `Error` on stderr.
 - `--bench` prints the disorder, the strategy and its class, the total operations, and the count of each operation. It prints to stderr, so it never mixes with the operations on stdout.
 
 ## Algorithms
 
 All algorithms work on each number's **rank** (its position in sorted order, 0 to n-1) instead of its value. This turns negative or huge numbers into 0 to n-1.
+
+### Shortcuts that run before every strategy
+
+- **Rotation check.** If a is already in order but shifted (for example `4 5 1 2 3`), the program only rotates the smallest number to the top the shorter way and stops.
+- **Small inputs (2 to 5 numbers).** 2 numbers: one swap. 3 numbers: put the largest at the bottom, then swap the top two if needed (at most 2 operations). 4 and 5 numbers: push the smallest one or two to b, sort the 3 left, push back (at most 6 and 10 operations).
+
+These are fixed costs for n ≤ 5, so they do not change the complexity class of any strategy.
 
 ### Simple: minimum extraction — O(n²)
 
@@ -79,22 +88,14 @@ Look at the rank in binary, one bit at a time, starting with the lowest bit. For
 
 The thresholds 0.2 and 0.5 come from the subject. Each regime gets the method whose strength matches it, and each method stays within the class the subject requires (O(n²), O(n√n), O(n log n)). Memory is O(1) extra in every case.
 
-### Results (operations, random input)
+### Results (operations)
 
 | n | simple | medium | complex | adaptive |
 |---|-------:|-------:|--------:|---------:|
-| 100 | ~1500 | ~820 | 1084 | ≤ 1084 |
-| 500 | ~32000 | ~8100 | 6784 | ≤ 8150 |
-
-## Resources
-
-- [Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
-- [Bucket sort](https://en.wikipedia.org/wiki/Bucket_sort) (the idea behind chunk sort)
-- [Radix sort](https://en.wikipedia.org/wiki/Radix_sort)
-- [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation)
+| 2 / 3 / 4 / 5 (worst case) | 1 / 2 / 6 / 10 | same | same | same |
+| 100 random | ~1500 | ~820 | 1084 | ≤ 1084 |
+| 500 random | ~32000 | ~8100 | 6784 | ≤ 8150 |
 
 ### Use of AI
 
-werlim :
-
-I used Claude as a tutor: explaining concepts (linked lists, the sorting algorithms, Big-O, Makefile), pointing at bugs that I miseed so I could fix them and drafting this README, which we checked and edited. All of the code submitted in this project are written by me and my teammate.
+We used AI mainly as a tutor: explaining concepts (linked lists, the sorting algorithms, Makefile), refining the codebase after solving bugs found, and drafting this README, which we checked and edited. All code sumbitted are written entirely by us.
