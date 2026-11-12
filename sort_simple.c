@@ -20,7 +20,7 @@ void	sort_small_num(t_ps *ps)
 		sort_three(ps);
 	else if (ps->size_a == 4)
 		sort_four(ps);
-	else if (ps->size_a <= 5)
+	else if (ps->size_a == 5)
 		sort_five(ps);
 }
 
