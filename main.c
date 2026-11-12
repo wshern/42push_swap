@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	ps_init(&ps);
-	if (!ps_parser(&ps, ac, av))
+	if (!ps_parser(&ps, ac, av) || ps.size_a == 0)
 	{
 		ps_ndclear(&ps.a);
 		ps_ndclear(&ps.b);
